@@ -61,8 +61,6 @@ h1 {
     left: 30%;
 }
 
-
-
 /* La barre de navigation */
 .navbar {
     display: flex;
@@ -73,7 +71,44 @@ h1 {
     backdrop-filter: blur(10px);    /* l'intensité du flou */
     border-bottom: 1px solid var(--bordure);
     border-radius: 70px;
-    margin-top : 15px;
+    margin-top : 15px ;
+    position : sticky; /*permet a la navbar de rester sur l'écran quand on scroll */
+    top: 0px;  /* se colle tout en haut */
+    z-index: 100;  /*reste au dessus de tout */
+}
+
+/* Bouton retour en haut */
+.scroll-top {
+    position: fixed;        /* toujours visible peu importe le scroll */
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(130deg, #2D5B75, #447794);
+    color: white;
+    border: none;
+    border-radius: 99px;
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 16px rgba(68, 119, 148, 0.3);
+    opacity: 0;             /* invisible au départ */
+    transition: opacity 0.3s, transform 0.2s;
+    z-index: 99;
+}
+
+.scroll-top.visible {
+    opacity: 1;             /* devient visible quand on scroll */
+}
+
+.scroll-top:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Indicateur de page active */
+.nav-active {
+    color: var(--accent) !important;
+    background: rgba(68, 119, 148, 0.15);
+    border-radius: 50px;
 }
 
 

@@ -46,6 +46,34 @@ hamburger.addEventListener('click', function() {
     }
 })
 
+// === BOUTON RETOUR EN HAUT ===
+const scrollTopBtn = document.getElementById('scrollTop')
+
+// Apparaît quand on scroll de plus de 300px
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('visible')
+    } else {
+        scrollTopBtn.classList.remove('visible')
+    }
+})
+
+// Remonte en haut au clic
+scrollTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' }) // smooth = animation douce
+})
+
+// === INDICATEUR PAGE ACTIVE ===
+// Récupère l'URL de la page actuelle
+const pageCourante = window.location.pathname.split('/').pop()
+
+// Pour chaque lien de la navbar, si son href correspond à la page actuelle
+document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(lien => {
+    if (lien.getAttribute('href') === pageCourante) {
+        lien.classList.add('nav-active')
+    }
+})
+
 // Cela m'a permis de crée le sudoku plus rapidement et facilement (cela m'a évité de mettre 81 balises input dans le html)
     for(let i=0;i<81;i++){
         const input = document.createElement('input')
