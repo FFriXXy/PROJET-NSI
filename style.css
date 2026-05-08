@@ -61,6 +61,45 @@ h1 {
     left: 30%;
 }
 
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: 1rem;
+    background: rgba(6, 18, 34, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--bordure);
+    border-radius: 16px;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 200;
+    min-width: 180px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.mobile-menu.open {
+    display: flex;
+    opacity: 1;
+}
+
+.mobile-menu a {
+    color: var(--texte);
+    text-decoration: none;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+.mobile-menu a:hover {
+    background: rgba(68, 119, 148, 0.15);
+    color: var(--accent);
+}
+
 /* La barre de navigation */
 .navbar {
     display: flex;

@@ -17,81 +17,87 @@ document.addEventListener('DOMContentLoaded', () => {
     // On applique l'observer à chaque élément
     elementsAAnimer.forEach(el => observer.observe(el));
 
-//Le bouton pour les mobiles
-const menubar = document.querySelector('.nav-links')
-const hamburger = document.querySelector('.hamburger')
+    // === NAVBAR MOBILE ===
+    const menubar = document.querySelector('.nav-links')
+    const hamburger = document.querySelector('.hamburger')
+    const mobileMenu = document.getElementById('mobileMenu')
 
-function updateNavbar() {
-    if (window.innerWidth <= 768) {     // Si la taille de l'écran est inférieure ou égale a 768px
-        menubar.style.display = 'none'  // mobile : on cache les liens
-        hamburger.style.display = 'block' // mobile : on montre le hamburger
-    } else {
-        menubar.style.display = 'flex'  // desktop : on montre les liens
-        hamburger.style.display = 'none' // desktop : on cache le hamburger
+    // Met à jour la navbar selon la taille de l'écran
+    function updateNavbar() {
+        if (window.innerWidth <= 768) {     // Si la taille de l'écran est inférieure ou égale a 768px
+            menubar.style.display = 'none'  // mobile : on cache les liens
+            hamburger.style.display = 'block' // mobile : on montre le hamburger
+        } else {
+            menubar.style.display = 'flex'  // desktop : on montre les liens
+            hamburger.style.display = 'none' // desktop : on cache le hamburger
+            mobileMenu.classList.remove('open') // ferme le menu si on agrandit la fenêtre
+        }
     }
-}
 
-// on appelle la fonction au chargement
-updateNavbar()
+    // on appelle la fonction au chargement
+    updateNavbar()
 
-// on rappelle la fonction à chaque redimensionnement de la fenêtre
-window.addEventListener('resize', updateNavbar)
+    // on rappelle la fonction à chaque redimensionnement de la fenêtre
+    window.addEventListener('resize', updateNavbar)
 
-hamburger.addEventListener('click', function() {
-    if (menubar.style.display === 'none') {
-        menubar.style.display = 'flex'
-        menubar.style.flexDirection = 'column'
-    } else {
-        menubar.style.display = 'none'
-    }
-})
+    // Ouvre ou ferme le menu au clic sur le hamburger
+    // toggle ajoute la classe si absente, la retire si présente
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation() // empêche le clic de se propager au document
+        mobileMenu.classList.toggle('open')
+    })
 
-// === BOUTON RETOUR EN HAUT ===
-const scrollTopBtn = document.getElementById('scrollTop')
+    // Ferme le menu si on clique en dehors
+    document.addEventListener('click', function(e) {
+        if (!mobileMenu.contains(e.target)) {
+            mobileMenu.classList.remove('open')
+        }
+    })
 
-// Apparaît quand on scroll de plus de 300px
-window.addEventListener('scroll', function() {
-    if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('visible')
-    } else {
-        scrollTopBtn.classList.remove('visible')
-    }
-})
+    // === BOUTON RETOUR EN HAUT ===
+    const scrollTopBtn = document.getElementById('scrollTop')
 
-// Remonte en haut au clic
-scrollTopBtn.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' }) // smooth = animation douce
-})
+    // Apparaît quand on scroll de plus de 300px
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add('visible')
+        } else {
+            scrollTopBtn.classList.remove('visible')
+        }
+    })
 
-// === INDICATEUR PAGE ACTIVE ===
-// Récupère l'URL de la page actuelle
-const pageCourante = window.location.pathname.split('/').pop()
+    // Remonte en haut au clic
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' }) // smooth = animation douce
+    })
 
-// Pour chaque lien de la navbar, si son href correspond à la page actuelle
-document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(lien => {
-    if (lien.getAttribute('href') === pageCourante) {
-        lien.classList.add('nav-active')
-    }
-})
+    // === INDICATEUR PAGE ACTIVE ===
+    // Récupère l'URL de la page actuelle
+    const pageCourante = window.location.pathname.split('/').pop()
 
-// Cela m'a permis de crée le sudoku plus rapidement et facilement (cela m'a évité de mettre 81 balises input dans le html)
+    // Pour chaque lien de la navbar, si son href correspond à la page actuelle
+    document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(lien => {
+        if (lien.getAttribute('href') === pageCourante) {
+            lien.classList.add('nav-active')
+        }
+    })
+
+    // Cela m'a permis de crée le sudoku plus rapidement et facilement (cela m'a évité de mettre 81 balises input dans le html)
     for(let i=0;i<81;i++){
         const input = document.createElement('input')
         input.type = 'number'
         input.min = 1
         input.max = 9
-        document.querySelector('.grille').appendChild(input)   
-
+        document.querySelector('.grille').appendChild(input)
     }
 
     function estValide(grille,ligne,colonne,valeur){
         if (grille[ligne].includes(valeur)){
             return false
         }
-       if (grille[colonne].includes(valeur)){
+        if (grille[colonne].includes(valeur)){
             return false
-    }
+        }
         let blocLigne = (ligne)
-}
+    }
 });
-
