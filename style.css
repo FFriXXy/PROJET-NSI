@@ -1,0 +1,377 @@
+/* couleur fréquament utilisée , regroupé pour faciliter le code */
+:root {
+    --bg: #061222;
+    --surface: rgba(68, 119, 148, 0.08);
+    --accent: #447794;
+    --texte: #f1f1f1;
+    --texte-doux: #8b8fa8;
+    --bordure: rgba(68, 119, 148, 0.25);
+}
+
+/* La page en générale  */
+body {
+    background: linear-gradient(135deg, #061222 0%, #123249 100%);
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    color: var(--texte);
+    position: relative; /* le parent des blobs */
+    overflow-x: hidden;   /* cache les blobs qui dépassent sur les côtés */
+}
+
+h1 {
+    font-family: 'DM Serif Display', serif;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--texte);
+    margin: 2rem 0 0.5rem;
+    cursor: default; 
+}
+
+/* les ronds en arriere plan  */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);  /* le flou qui donne l'effet */
+    opacity: 0.15;       /* discret, juste une touche */
+    z-index: -1;         /* derrière tout le contenu */
+}
+
+.blob-1 {
+    width: 600px;
+    height: 600px;
+    background: #4f8eff;
+    top: -100px;
+    left: -150px;
+}
+
+.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: #a855f7;
+    top: 200px;
+    right: -100px;
+}
+
+.blob-3 {
+    width: 300px;
+    height: 300px;
+    background: #4f8eff;
+    bottom: 100px;
+    left: 30%;
+}
+
+
+
+/* La barre de navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* les éléments se séparent automatiquement du même espace */
+    align-items: center;
+    padding: 0 2rem;
+    background:rgba(6, 18, 34, 0.4);  /* plus transparent avec le a de rgba qui donne l'effet de transparence*/
+    backdrop-filter: blur(10px);    /* l'intensité du flou */
+    border-bottom: 1px solid var(--bordure);
+    border-radius: 70px;
+    margin-top : 15px;
+}
+
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+/* Le Sudoku en haut a gauche */
+.nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--accent);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Le bouton commencer */
+.nav-btn {
+    background: linear-gradient(130deg, #2D5B75, #447794);
+    color: #f1f1f1;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 99px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 4px 16px rgba(68, 119, 148, 0.3); /* ombrage du bouton qui donne un effet moderne */
+}
+
+/* animation au survol du bouton */
+.nav-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Le click and drop pour les écrans réduits comme un téléphone */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--accent);
+}
+
+/* les liens cliquables en haut de la page */
+.navbar a {
+    color: rgb(219, 219, 219);
+    text-decoration: none;
+    padding: 2rem 2rem;
+    display: block;
+    font-weight: 500;
+    transition: color 0.2s; /* transition fluide entre le hover et le mode normal */
+    border-radius: 50px;
+}
+
+/* survole des liens cliquables */
+.navbar a:hover {
+    color: var(--accent);
+    background-color: rgba(6, 18, 34, 0.5);
+}
+
+/* le contenue de la page */
+main {
+    max-width: 700px;
+    margin: 3rem auto;
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--bordure);
+}
+
+/* Les écritures de paragraphe (le plus petit) */
+main p {
+    color: var(--texte-doux);
+    line-height: 1.7;
+    font-size: 1rem;
+    cursor: default;
+}
+
+/* Le début du contenue */
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+/* Caractéristique de l'écriture de Sudoku par exemple (permet de mettre en valeur un mot */
+.accent {
+    color: var(--accent);
+}
+
+/* caractérique plus détaillé des paragraphes notamment la position  */
+.hero p {
+    color: var(--texte-doux);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 1rem auto 2rem;
+    line-height: 1.7;
+}
+
+/* Le bouton commencer */
+.hero-btn {
+    background: linear-gradient(130deg, #2D5B75, #447794);
+    color: #f1f1f1;
+    border: none;
+    padding: 0.9rem 2rem;
+    border-radius: 99px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    box-shadow: 0 4px 16px rgba(68, 119, 148, 0.3); /* ombrage du bouton qui donne un effet moderne */
+}
+
+/* Au survole du bouton / animation */
+.hero-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* La taille des cards et des steps , niveau largeur */
+.features, .steps {
+    padding: 6rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Les titres en blancs */
+.features h2, .steps h2,.features-equipe h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    color: var(--texte);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    cursor: default;
+}
+
+/* La taille des cards mais dans la page A propos */
+.features-equipe{
+    padding: 1.5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Les cards pour pouvoir les mettres cote a cote sous forme de colonne */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Les caractéristique des cards la bordure tout ça */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--bordure);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); /* De l'ombre autour pour faire du relief */
+}
+
+/* L'emoji a l'intérieur des cartes */
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    cursor: default;
+}
+
+/* L'écriture en dessous des émojis */
+.card h3 {
+    font-size: 1.1rem;
+    color: var(--texte);
+    margin-bottom: 0.5rem;
+    cursor: default;
+}
+
+/* Le paragraphe dans les cartes */
+.card p {
+    color: var(--texte-doux);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* La position des steps (étapes) du comment ça marche */
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Les caractéristique des étapes (position , bordure , ...) */
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--bordure);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3); /* De l'ombre autour pour faire du relief */
+}
+
+/* Les numéros a côté des instructions */
+.step-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent);
+    opacity: 0.5;
+    line-height: 2.5;
+    min-width: 60px;
+    cursor: default;
+}
+
+/* Les écritures blanches a l'intérieur des étapes */
+.step h3 {
+    color: var(--texte);
+    margin-bottom: 0.3rem;
+    cursor: default;
+}
+
+/* Le paragraphe dedans les étapes */
+.step p {
+    color: var(--texte-doux);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* La section tout en bas de la page */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--texte-doux);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--bordure);
+    margin-top: 2rem;
+}
+
+/* Classe pour les animations en JS , ici c'est la classe lorsque les éléments ne sont pas sur l'écran donc invisible */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Classe lorsque les éléments sont visibles sur l'écran */
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Animation sur cards lorsqu'on survole l'une d'entre elle */
+.fade-up.visible.card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.2s ease;
+    border-color: rgba(68, 119, 148, 0.35);
+}
+
+/* Les cartes apparaissent l'une après l'autre avec un léger décalage */
+.fade-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-up:nth-child(3) { transition-delay: 0.2s; }
+
+/* Permet de rendre le site responvive afin d'introduire le hamburger pour les mobiles */
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    .nav-links { display: none; }
+    .nav-btn { display: none; }
+}
+
+/* La grille de sudoku  */
+.grille {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    width: fit-content;
+    margin: 2rem auto;
+}
+
+/* Caractéristique des inputs (des cases) du sudoku */
+.grille input {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 2rem;
+    border: 1px solid var(--bordure);
+    background: var(--surface);
+    color:#519cc7;
+    border-radius: 5px;
+}
+
+/* Conteneur qui contient la grille de sudoku */
+#conteneur {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}

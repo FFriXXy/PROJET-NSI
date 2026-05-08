@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku_NSI</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+<!-- ARRIERE PLAN -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div> 
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <ul>
+        <li><a href="main.html" class="nav-logo">Sudoku</a></li>
+    </ul>
+
+    <ul class="nav-links">
+        <li><a href="generation.html">Génération</a></li>
+        <li><a href="apropos.html">A propos</a></li>
+    </ul>
+
+    <button class="hamburger">☰</button>
+
+    <button onclick="window.location.href='generation.html'" class="nav-btn">Générez votre grille</button>    
+    
+</nav>
+
+<main>
+
+<!-- SECTION HERO -->
+<section class="hero">
+    <h1>Générez et résolvez<br>vos <span class="accent"></span></h1>
+    <p>Un algorithme puissant analyse votre grille et vous guide pas à pas vers la solution.</p>
+    <button onclick="window.location.href='generation.html'" class="hero-btn">Générez votre grille →</button>
+</section>
+
+<!-- SECTION FEATURES -->
+<section class="features">
+    <h2>Pourquoi ce site ?</h2>
+    <div class="cards">
+        <div class="card">
+            <div class="card-icon">🧩</div>
+            <h3>Générez vos grilles</h3>
+            <p>Dessinez votre propre sudoku case par case, à votre rythme.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Résolution instantanée</h3>
+            <p>Un algorithme analyse la grille et trouve la solution en millisecondes.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📖</div>
+            <h3>Pas à pas</h3>
+            <p>Comprenez chaque étape de la résolution, expliquée clairement.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION ETAPES -->
+<section class="steps">
+    <h2>Comment ça marche ?</h2>
+    <div class="steps-list">
+        <div class="step">
+            <span class="step-num">01</span>
+            <div>
+                <h3>Entrez votre grille</h3>
+                <p>Remplissez les cases avec les chiffres de votre sudoku.</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-num">02</span>
+            <div>
+                <h3>Lancez l'algorithme</h3>
+                <p>Notre moteur vérifie si le sudoku est valide et résolvable.</p>
+            </div>
+        </div>
+        <div class="step">
+            <span class="step-num">03</span>
+            <div>
+                <h3>Suivez la solution</h3>
+                <p>Chaque étape est détaillée pour que vous compreniez la logique.</p>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>Projet NSI — Terminale · 2026</p>
+</footer>
+
+<!-- JS -->
+<script src="script.js"></script>
+<script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
+<script>
+    var typed = new Typed(".accent",{
+        strings: [('Sudoku')],
+        typeSpeed : 150,
+    })
+</script>
+</body>
+</html>

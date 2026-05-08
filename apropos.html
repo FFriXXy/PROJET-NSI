@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico">
+</head>
+
+<body>
+
+<!-- ARRIERE PLAN -->
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <ul>
+        <li><a href="main.html" class="nav-logo">Sudoku</a></li>
+    </ul>
+
+    <ul class="nav-links">
+        <li><a href="generation.html">Création</a></li>
+        <li><a href="apropos.html">A propos</a></li>
+    </ul>
+
+    <button class="hamburger">☰</button>
+    <button onclick="window.location.href='creation.html'" class="nav-btn">Commencer</button>
+</nav>
+
+<main>
+
+<!-- SECTION HERO -->
+<section class="hero">
+    <h1>À propos du <br> <span class="accent"></span></h1>
+    <p>Ce projet a été réalisé par Milan, Arthur, Louis, Hugo, et Théo.</p>
+</section>
+
+<!-- SECTION FEATURES -->
+<section class="features-equipe">
+    <h2>L'équipe</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Théo & Milan</h3>
+                <p>Front-end — Design et intégration du site.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>Hugo & Louis</h3>
+                <p>Logique — Algorithme de résolution du sudoku.</p>
+             </div>
+            <div class="card">
+                <div class="card-icon">📋</div>
+                <h3>Arthur</h3>
+                <p>Chef de projet — Coordination de l'équipe.</p>
+            </div>
+        </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>Projet NSI — Terminale · 2026</p>
+</footer>
+
+<!-- JS -->
+<script src="script.js"></script>
+<script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
+<script>
+    var typed = new Typed(".accent",{
+        strings: [('Projet')],
+        typeSpeed : 150,
+    })
+</script>
+</body>
+</html>
