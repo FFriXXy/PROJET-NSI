@@ -64,8 +64,8 @@ h1 {
 .mobile-menu {
     display: none;
     position: fixed;
-    top: 70px;
-    right: 1rem;
+    top: 95px;
+    right: 2rem;
     background: rgba(6, 18, 34, 0.95);
     backdrop-filter: blur(20px);
     border: 1px solid var(--bordure);
