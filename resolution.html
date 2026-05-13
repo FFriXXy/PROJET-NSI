@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Génération</title>
+    <title>Résolution</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico">
-</head> 
+</head>
+<body>
 
-<body id="grille">
 
 <!-- ARRIERE PLAN -->
 <div class="blob blob-1"></div>
 <div class="blob blob-2"></div>
-<div class="blob blob-3"></div>
+<div class="blob blob-3"></div> 
 
 <!-- NAVBAR -->
 <nav class="navbar">
     <ul>
         <li><a href="main.html" class="nav-logo">Sudoku</a></li>
     </ul>
-
+    
     <ul class="nav-links">
         <li><a href="generation.html">Génération</a></li>
         <li><a href="resolution.html">Résolution</a></li>
@@ -29,13 +29,11 @@
     </ul>
 
     <button class="hamburger">☰</button>
-    <button class="nav-btn">Générez votre grille</button>
+
+    <button onclick="window.location.href='generation.html'" class="nav-btn">Générez votre grille</button>    
+    
 </nav>
 
-<!-- GRILLE -->
-<div id="conteneur">
-    <div class="grille"></div>
-</div>
 
 <!-- FOOTER -->
 <footer>
@@ -55,6 +53,7 @@
     <a href="resolution.html">Résolution</a>
     <a href="apropos.html">À propos</a>
 </div>
+
 
 </body>
 </html>
